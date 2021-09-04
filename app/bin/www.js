@@ -4,5 +4,5 @@ const app = require("../app");
 const PORT = 3000;
 
 app.listen(PORT, () => {
-	console.log("engine on 우주로 ~");
+	console.log("Engine On 우주로 ~");
 });
