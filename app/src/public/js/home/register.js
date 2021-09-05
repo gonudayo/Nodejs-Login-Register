@@ -20,7 +20,6 @@ function register() {
 		name: name.value,
 		id: id.value,
 		psword: psword.value,
-		securityCode: securityCode.value,
 	};
 
 	fetch("/register", {
