@@ -1,11 +1,10 @@
 "use strict";
 
 const express = require("express");
-const bodyParser = require("body-parser");
+const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
-
-const app = express();
+const bodyParser = require("body-parser");
 
 const home = require("./src/routes/home");
 

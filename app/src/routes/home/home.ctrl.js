@@ -2,6 +2,7 @@
 
 const logger = require("../../config/logger");
 const User = require("../../models/User");
+const mailer = require('./mail');
 
 const output = {
 	home: (req, res) => {
@@ -20,6 +21,7 @@ const output = {
 	},
 };
 
+
 const process = {
 	login: async (req, res) => {
 		const user = new User(req.body);
@@ -37,6 +39,13 @@ const process = {
 	register: async (req, res) => {
 		const user = new User(req.body);
 		const response = await user.register();
+		
+		let emailParam = {
+			toEmail: req.body.email,
+			subject: '안녕하세요. 위드 밀리터리 입니다!',
+			text: `아래 링크에 접속하여 이메일 인증을 완료해주세요.`
+		};
+		await mailer.sendGmail(emailParam);
 		
 		const url = {
 			method: "POST",

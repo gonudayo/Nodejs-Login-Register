@@ -15,6 +15,7 @@ class User {
 		
 		if(user) {
 			if (user.id === client.id && user.psword === client.psword) {
+				if(user.email_verified == false) return { success: false, msg: "이메일 인증이 완료되지 않았습니다."};
 				return { success: true};
 			}
 				return { success: false, msg: "비밀번호가 틀렸습니다."};
